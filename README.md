@@ -39,7 +39,7 @@ You can also watch my videos on [Youtube](https://www.youtube.com/channel/UCUKBn
 ## LICENSE
 
 
-Copyright ©  2017  Zeroit Dev Technologies
+Copyright ©  2019  Zeroit Dev Technologies
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
