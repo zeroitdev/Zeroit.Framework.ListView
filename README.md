@@ -1,4 +1,4 @@
-![](<https://github.com/zeroitdev/Zeroit.Framework.Transitions/blob/master/Preview/Preview.gif>)
+![](<https://github.com/zeroitdev/Zeroit.Framework.Transitions/blob/master/Preview/Preview.PNG>)
 
 
 
