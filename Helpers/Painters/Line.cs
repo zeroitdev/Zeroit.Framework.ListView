@@ -1,14 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design.Serialization;
-using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Design;
 using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Reflection;
-using System.Text;
 
 namespace Zeroit.Framework.ListView.Editors
 {

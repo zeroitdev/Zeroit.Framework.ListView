@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -10,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Zeroit Dev Technologies")]
 [assembly: AssemblyProduct("Zeroit Framework List View")]
-[assembly: AssemblyCopyright("Copyright © Zeroit Dev Technologies  2019. All Rights Reserved.")]
+[assembly: AssemblyCopyright("Copyright © 2019 Zeroit Dev Technologies. All Rights Reserved.")]
 [assembly: AssemblyTrademark("ZDT")]
 [assembly: AssemblyCulture("")]
 

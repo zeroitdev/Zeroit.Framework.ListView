@@ -1,14 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.Design.Serialization;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Globalization;
-using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Zeroit.Framework.ListView.Editors

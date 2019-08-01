@@ -1,19 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// ***********************************************************************
+// Assembly         : Zeroit.Framework.ListView
+// Author           : ZEROIT
+// Created          : 06-30-2019
+//
+// Last Modified By : ZEROIT
+// Last Modified On : 08-01-2019
+// ***********************************************************************
+// <copyright file="SimpleListView.cs" company="Zeroit Dev Technologies">
+//     Copyright © 2019 Zeroit Dev Technologies. All Rights Reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Globalization;
 using System.Windows.Forms;
-using Zeroit.Framework.ListView.Editors.Brushes;
-using Zeroit.Framework.ListView.Editors.PenPainter;
 
 namespace Zeroit.Framework.ListView
 {
+    /// <summary>
+    /// Class SimpleListView.
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.ListView" />
     [ToolboxItem(true)]
     public class SimpleListView : System.Windows.Forms.ListView
     {
@@ -54,7 +65,7 @@ namespace Zeroit.Framework.ListView
 
         private Color headerColor = Color.Black;
 
-        Color lineColor = Color.Yellow;
+        private Color lineColor = Color.Yellow;
 
         private NumberStyles numberStyles = NumberStyles.Currency;
 
@@ -81,12 +92,19 @@ namespace Zeroit.Framework.ListView
         private headerAlignment _headerAlignment = headerAlignment.Center;
 
         private drawMode _drawMode = drawMode.Stylish;
-               
-        
+
+        private SmoothingMode smoothing = SmoothingMode.HighQuality;
+
+        private TextRenderingHint textrendering = TextRenderingHint.AntiAlias;
+
         #endregion
 
         #region Public Properties
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="SimpleListView"/> is rounding.
+        /// </summary>
+        /// <value><c>true</c> if rounding; otherwise, <c>false</c>.</value>
         public bool Rounding
         {
             get { return rounding; }
@@ -97,6 +115,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the radius.
+        /// </summary>
+        /// <value>The radius.</value>
         public float Radius
         {
             get { return radius; }
@@ -107,6 +129,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [hide header].
+        /// </summary>
+        /// <value><c>true</c> if [hide header]; otherwise, <c>false</c>.</value>
         public bool HideHeader
         {
             get { return hideHeader; }
@@ -117,6 +143,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the draw mode.
+        /// </summary>
+        /// <value>The draw mode.</value>
         public drawMode DrawMode
         {
             get { return _drawMode; }
@@ -139,6 +169,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the header alignment.
+        /// </summary>
+        /// <value>The header alignment.</value>
         public headerAlignment HeaderAlignment
         {
             get { return _headerAlignment; }
@@ -149,6 +183,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the fill unfocused.
+        /// </summary>
+        /// <value>The fill unfocused.</value>
         public Color[] FillUnfocused
         {
             get { return unfocusedfill; }
@@ -159,6 +197,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the fill focused.
+        /// </summary>
+        /// <value>The fill focused.</value>
         public Color[] FillFocused
         {
             get { return focusedFill; }
@@ -169,6 +211,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the column header.
+        /// </summary>
+        /// <value>The column header.</value>
         public Color[] ColumnHeader
         {
             get { return columnHeader; }
@@ -179,6 +225,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the height of the line.
+        /// </summary>
+        /// <value>The height of the line.</value>
         public int LineHeight
         {
             get { return lineHeight; }
@@ -189,6 +239,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color of the line.
+        /// </summary>
+        /// <value>The color of the line.</value>
         public Color LineColor
         {
             get { return lineColor; }
@@ -199,6 +253,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color of the sub text.
+        /// </summary>
+        /// <value>The color of the sub text.</value>
         public Color SubTextColor
         {
             get { return subTextColor; }
@@ -209,6 +267,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color of the header.
+        /// </summary>
+        /// <value>The color of the header.</value>
         public Color HeaderColor
         {
             get { return headerColor; }
@@ -219,6 +281,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the number styles.
+        /// </summary>
+        /// <value>The number styles.</value>
         public NumberStyles NumberStyles
         {
             get { return numberStyles; }
@@ -229,6 +295,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the header font.
+        /// </summary>
+        /// <value>The header font.</value>
         public Font HeaderFont
         {
             get { return headerFont; }
@@ -238,7 +308,11 @@ namespace Zeroit.Framework.ListView
                 Invalidate();
             }
         }
-                
+
+        /// <summary>
+        /// Gets or sets the header border.
+        /// </summary>
+        /// <value>The header border.</value>
         public Color HeaderBorder
         {
             get { return headerBorder; }
@@ -249,6 +323,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the cell border focused.
+        /// </summary>
+        /// <value>The cell border focused.</value>
         public Color CellBorderFocused
         {
             get { return cellBorderFocused; }
@@ -258,7 +336,11 @@ namespace Zeroit.Framework.ListView
                 Invalidate();
             }
         }
-                
+
+        /// <summary>
+        /// Gets or sets the cell border un focused.
+        /// </summary>
+        /// <value>The cell border un focused.</value>
         public Color CellBorderUnFocused
         {
             get { return cellBorderUnFocused; }
@@ -269,6 +351,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [show border].
+        /// </summary>
+        /// <value><c>true</c> if [show border]; otherwise, <c>false</c>.</value>
         public bool ShowBorder
         {
             get { return showBorder; }
@@ -279,6 +365,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [show cell border].
+        /// </summary>
+        /// <value><c>true</c> if [show cell border]; otherwise, <c>false</c>.</value>
         public bool ShowCellBorder
         {
             get { return showCellBorder; }
@@ -289,6 +379,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [surrond border].
+        /// </summary>
+        /// <value><c>true</c> if [surrond border]; otherwise, <c>false</c>.</value>
         public bool SurrondBorder
         {
             get { return surroundBorder; }
@@ -299,10 +393,11 @@ namespace Zeroit.Framework.ListView
             }
         }
 
-        #region Smoothing Mode
 
-        private SmoothingMode smoothing = SmoothingMode.HighQuality;
-
+        /// <summary>
+        /// Gets or sets the smoothing.
+        /// </summary>
+        /// <value>The smoothing.</value>
         public SmoothingMode Smoothing
         {
             get { return smoothing; }
@@ -313,17 +408,11 @@ namespace Zeroit.Framework.ListView
             }
         }
 
-        #endregion
-        
-        #region TextRenderingHint
 
-        #region Add it to OnPaint / Graphics Rendering component
-
-        //e.Graphics.TextRenderingHint = textrendering;
-        #endregion
-
-        TextRenderingHint textrendering = TextRenderingHint.AntiAlias;
-
+        /// <summary>
+        /// Gets or sets the text rendering.
+        /// </summary>
+        /// <value>The text rendering.</value>
         public TextRenderingHint TextRendering
         {
             get { return textrendering; }
@@ -333,8 +422,11 @@ namespace Zeroit.Framework.ListView
                 Invalidate();
             }
         }
-        #endregion
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [show header line].
+        /// </summary>
+        /// <value><c>true</c> if [show header line]; otherwise, <c>false</c>.</value>
         public bool ShowHeaderLine
         {
             get { return showHeaderLine; }
@@ -381,6 +473,9 @@ namespace Zeroit.Framework.ListView
 
         #region Constructor
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SimpleListView"/> class.
+        /// </summary>
         public SimpleListView()
         {
 

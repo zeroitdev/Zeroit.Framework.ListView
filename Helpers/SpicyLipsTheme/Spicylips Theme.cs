@@ -1,10 +1,3 @@
-
-using Microsoft.VisualBasic;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
@@ -12,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Zeroit.Framework.ListView.ThemeManagers
 {
-    
+
     [ToolboxItem(false)]
     public class SpicyLips : ThemeContainer
     {

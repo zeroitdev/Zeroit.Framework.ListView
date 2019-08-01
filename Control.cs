@@ -1,9 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// ***********************************************************************
+// Assembly         : Zeroit.Framework.ListView
+// Author           : ZEROIT
+// Created          : 06-28-2019
+//
+// Last Modified By : ZEROIT
+// Last Modified On : 08-01-2019
+// ***********************************************************************
+// <copyright file="Control.cs" company="Zeroit Dev Technologies">
+//     Copyright © Zeroit Dev Technologies  2019. All Rights Reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
@@ -14,6 +23,11 @@ using Zeroit.Framework.ListView.Editors.PenPainter;
 
 namespace Zeroit.Framework.ListView
 {
+
+    /// <summary>
+    /// Class ZeroitListView.
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.ListView" />
     [ToolboxItem(true)]
     public class ZeroitListView : System.Windows.Forms.ListView
     {
@@ -43,18 +57,18 @@ namespace Zeroit.Framework.ListView
         private BrushPainter focusedFill = new BrushPainter(90f, Color.AliceBlue, Color.Lime);
 
         private BrushPainter columnHeader = new BrushPainter(90f, Color.AliceBlue, Color.Lime);
-        
+
         private PenPainter headerBorder = new PenPainter(Color.White, 1f);
 
         private PenPainter cellBorderFocused = new PenPainter(Color.White, 1f);
 
         private PenPainter cellBorderUnFocused = new PenPainter(Color.White, 1f);
-                
+
         private Color subTextColor = Color.Red;
 
         private Color headerColor = Color.Black;
 
-        Color lineColor = Color.Yellow;
+        private Color lineColor = Color.Yellow;
 
         private NumberStyles numberStyles = NumberStyles.Currency;
 
@@ -62,7 +76,7 @@ namespace Zeroit.Framework.ListView
 
         private bool hideHeader = false;
 
-        private bool showBorder = false; 
+        private bool showBorder = false;
 
         private bool showCellBorder = false;
 
@@ -73,18 +87,26 @@ namespace Zeroit.Framework.ListView
         private bool rounding = false;
 
         private int lineHeight = 1;
-                
+
         private float radius = 1;
 
         private headerAlignment _headerAlignment = headerAlignment.Center;
 
         private drawMode _drawMode = drawMode.Stylish;
-               
-        
+
+        private TextRenderingHint textrendering = TextRenderingHint.AntiAlias;
+
+        private SmoothingMode smoothing = SmoothingMode.HighQuality;
+
+
         #endregion
 
         #region Public Properties
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="ZeroitListView"/> is rounding.
+        /// </summary>
+        /// <value><c>true</c> if rounding; otherwise, <c>false</c>.</value>
         public bool Rounding
         {
             get { return rounding; }
@@ -95,6 +117,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the radius.
+        /// </summary>
+        /// <value>The radius.</value>
         public float Radius
         {
             get { return radius; }
@@ -105,6 +131,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [hide header].
+        /// </summary>
+        /// <value><c>true</c> if [hide header]; otherwise, <c>false</c>.</value>
         public bool HideHeader
         {
             get { return hideHeader; }
@@ -115,6 +145,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the draw mode.
+        /// </summary>
+        /// <value>The draw mode.</value>
         public drawMode DrawMode
         {
             get { return _drawMode; }
@@ -137,6 +171,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the header alignment.
+        /// </summary>
+        /// <value>The header alignment.</value>
         public headerAlignment HeaderAlignment
         {
             get { return _headerAlignment; }
@@ -147,6 +185,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the fill unfocused.
+        /// </summary>
+        /// <value>The fill unfocused.</value>
         public BrushPainter FillUnfocused
         {
             get { return unfocusedfill; }
@@ -157,6 +199,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the fill focused.
+        /// </summary>
+        /// <value>The fill focused.</value>
         public BrushPainter FillFocused
         {
             get { return focusedFill; }
@@ -167,6 +213,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the column header.
+        /// </summary>
+        /// <value>The column header.</value>
         public BrushPainter ColumnHeader
         {
             get { return columnHeader; }
@@ -177,6 +227,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the height of the line.
+        /// </summary>
+        /// <value>The height of the line.</value>
         public int LineHeight
         {
             get { return lineHeight; }
@@ -187,6 +241,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color of the line.
+        /// </summary>
+        /// <value>The color of the line.</value>
         public Color LineColor
         {
             get { return lineColor; }
@@ -197,6 +255,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color of the sub text.
+        /// </summary>
+        /// <value>The color of the sub text.</value>
         public Color SubTextColor
         {
             get { return subTextColor; }
@@ -207,6 +269,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the color of the header.
+        /// </summary>
+        /// <value>The color of the header.</value>
         public Color HeaderColor
         {
             get { return headerColor; }
@@ -217,6 +283,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the number styles.
+        /// </summary>
+        /// <value>The number styles.</value>
         public NumberStyles NumberStyles
         {
             get { return numberStyles; }
@@ -227,6 +297,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the header font.
+        /// </summary>
+        /// <value>The header font.</value>
         public Font HeaderFont
         {
             get { return headerFont; }
@@ -236,7 +310,11 @@ namespace Zeroit.Framework.ListView
                 Invalidate();
             }
         }
-                
+
+        /// <summary>
+        /// Gets or sets the header border.
+        /// </summary>
+        /// <value>The header border.</value>
         public PenPainter HeaderBorder
         {
             get { return headerBorder; }
@@ -247,6 +325,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets the cell border focused.
+        /// </summary>
+        /// <value>The cell border focused.</value>
         public PenPainter CellBorderFocused
         {
             get { return cellBorderFocused; }
@@ -256,7 +338,11 @@ namespace Zeroit.Framework.ListView
                 Invalidate();
             }
         }
-                
+
+        /// <summary>
+        /// Gets or sets the cell border un focused.
+        /// </summary>
+        /// <value>The cell border un focused.</value>
         public PenPainter CellBorderUnFocused
         {
             get { return cellBorderUnFocused; }
@@ -267,6 +353,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [show border].
+        /// </summary>
+        /// <value><c>true</c> if [show border]; otherwise, <c>false</c>.</value>
         public bool ShowBorder
         {
             get { return showBorder; }
@@ -277,6 +367,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [show cell border].
+        /// </summary>
+        /// <value><c>true</c> if [show cell border]; otherwise, <c>false</c>.</value>
         public bool ShowCellBorder
         {
             get { return showCellBorder; }
@@ -287,6 +381,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [surrond border].
+        /// </summary>
+        /// <value><c>true</c> if [surrond border]; otherwise, <c>false</c>.</value>
         public bool SurrondBorder
         {
             get { return surroundBorder; }
@@ -297,10 +395,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
-        #region Smoothing Mode
-
-        private SmoothingMode smoothing = SmoothingMode.HighQuality;
-
+        /// <summary>
+        /// Gets or sets the smoothing.
+        /// </summary>
+        /// <value>The smoothing.</value>
         public SmoothingMode Smoothing
         {
             get { return smoothing; }
@@ -311,17 +409,10 @@ namespace Zeroit.Framework.ListView
             }
         }
 
-        #endregion
-        
-        #region TextRenderingHint
-
-        #region Add it to OnPaint / Graphics Rendering component
-
-        //e.Graphics.TextRenderingHint = textrendering;
-        #endregion
-
-        TextRenderingHint textrendering = TextRenderingHint.AntiAlias;
-
+        /// <summary>
+        /// Gets or sets the text rendering.
+        /// </summary>
+        /// <value>The text rendering.</value>
         public TextRenderingHint TextRendering
         {
             get { return textrendering; }
@@ -331,8 +422,11 @@ namespace Zeroit.Framework.ListView
                 Invalidate();
             }
         }
-        #endregion
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [show header line].
+        /// </summary>
+        /// <value><c>true</c> if [show header line]; otherwise, <c>false</c>.</value>
         public bool ShowHeaderLine
         {
             get { return showHeaderLine; }
@@ -379,11 +473,15 @@ namespace Zeroit.Framework.ListView
 
         #region Constructor
 
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ZeroitListView"/> class.
+        /// </summary>
         public ZeroitListView()
         {
 
             SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer, true);
-            
+
         }
 
         #endregion
@@ -407,7 +505,7 @@ namespace Zeroit.Framework.ListView
                         // Draw the background and focus rectangle for a selected item.
                         e.Graphics.FillRectangle(FillFocused.GetBrush(e.Bounds), e.Bounds);
 
-                        if(SurrondBorder)
+                        if (SurrondBorder)
                         {
                             e.Graphics.DrawRectangle(CellBorderFocused.GetPen(), new Rectangle(e.Bounds.X + (int)HeaderBorder.GetPen().Width, e.Bounds.Y + (int)HeaderBorder.GetPen().Width, e.Bounds.Width - (2 * (int)HeaderBorder.GetPen().Width), e.Bounds.Height - (2 * (int)HeaderBorder.GetPen().Width)));
 
@@ -423,7 +521,7 @@ namespace Zeroit.Framework.ListView
                         if (SurrondBorder)
                         {
                             e.Graphics.DrawRectangle(CellBorderUnFocused.GetPen(), new Rectangle(e.Bounds.X + (int)HeaderBorder.GetPen().Width, e.Bounds.Y + (int)HeaderBorder.GetPen().Width, e.Bounds.Width - (2 * (int)HeaderBorder.GetPen().Width), e.Bounds.Height - (2 * (int)HeaderBorder.GetPen().Width)));
-                            
+
                         }
                     }
 
@@ -526,7 +624,7 @@ namespace Zeroit.Framework.ListView
                 case drawMode.Stylish:
 
                     base.OnDrawColumnHeader(e);
-                    
+
                     if (!HideHeader)
                     {
                         int internalWidth = e.Bounds.Width - (2 * (int)HeaderBorder.GetPen().Width);
@@ -554,8 +652,8 @@ namespace Zeroit.Framework.ListView
                                     break;
                             }
 
-                            
-                            if(rounding)
+
+                            if (rounding)
                             {
                                 if (ShowBorder)
                                 {
@@ -582,9 +680,9 @@ namespace Zeroit.Framework.ListView
                                     g.DrawRectangle(HeaderBorder.GetPen(), new Rectangle(e.Bounds.X + (int)HeaderBorder.GetPen().Width, e.Bounds.Y + (int)HeaderBorder.GetPen().Width, e.Bounds.Width - (2 * (int)HeaderBorder.GetPen().Width), e.Bounds.Height - (2 * (int)HeaderBorder.GetPen().Width)));
 
                                 }
-                                
+
                             }
-                            
+
                             if (ShowHeaderLine)
                             {
                                 foreach (ColumnHeader items in Columns)
@@ -595,7 +693,7 @@ namespace Zeroit.Framework.ListView
 
                                 }
                             }
-                            
+
                             switch (HeaderAlignment)
                             {
                                 case headerAlignment.Left:
@@ -623,7 +721,7 @@ namespace Zeroit.Framework.ListView
                             }
 
                         }
-                                               
+
 
                     }
 
@@ -632,7 +730,7 @@ namespace Zeroit.Framework.ListView
                         GC.Collect();
                     }
 
-                    return;                   
+                    return;
 
             }
 

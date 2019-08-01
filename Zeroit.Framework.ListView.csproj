@@ -415,8 +415,5 @@
   <ItemGroup>
     <None Include="Resources\UpRight_small.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Preserved.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
