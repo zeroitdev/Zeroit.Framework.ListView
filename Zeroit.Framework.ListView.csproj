@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6CAFEB5B-9D2A-4671-9787-EE875B6186D0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Zeroit.Framework.ListView</RootNamespace>
+    <AssemblyName>Zeroit.Framework.ListView</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\NoFlickerPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\NoFlickerPanel.Designer.cs">
+      <DependentUpon>NoFlickerPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\BaseColorPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\Brushes\BrushPainter.cs" />
+    <Compile Include="Helpers\Painters\Brushes\BrushPainter2.cs" />
+    <Compile Include="Helpers\Painters\Brushes\BrushPainter2Dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\Brushes\BrushPainter2Dialog.Designer.cs">
+      <DependentUpon>BrushPainter2Dialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\Brushes\BrushPainterDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\Brushes\BrushPainterDialog.Designer.cs">
+      <DependentUpon>BrushPainterDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\Brushes\Painter2Panel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\Brushes\Painter2Panel.Designer.cs">
+      <DependentUpon>Painter2Panel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\Brushes\PainterPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\Brushes\PainterPanel.Designer.cs">
+      <DependentUpon>PainterPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\CatColorPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\CatColorPicker.Designer.cs">
+      <DependentUpon>CatColorPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\ColorGradientEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\ColorGradientEditor.designer.cs">
+      <DependentUpon>ColorGradientEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\ColorGradientEditorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\ColorGradientEditorDialog.Designer.cs">
+      <DependentUpon>ColorGradientEditorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\ComboColorPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\ComboColorPicker.Designer.cs">
+      <DependentUpon>ComboColorPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\ComboColorPickerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\ComboColorPickerDialog.Designer.cs">
+      <DependentUpon>ComboColorPickerDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\CustomColorPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\CustomColorPicker.Designer.cs">
+      <DependentUpon>CustomColorPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\CustomColorPickerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\CustomColorPickerDialog.Designer.cs">
+      <DependentUpon>CustomColorPickerDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\DashStyleComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\DragControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\HatchStyleComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\HatchStylePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\HatchStylePanel.Designer.cs">
+      <DependentUpon>HatchStylePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\HSColor.cs" />
+    <Compile Include="Helpers\Painters\Line.cs" />
+    <Compile Include="Helpers\Painters\LinearGradientBrush2.cs" />
+    <Compile Include="Helpers\Painters\LinearGradientModeComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\LinearGradientPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\LinearGradientPanel.Designer.cs">
+      <DependentUpon>LinearGradientPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\LineEditorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\LineEditorDialog.Designer.cs">
+      <DependentUpon>LineEditorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\LinePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\LinePanel.Designer.cs">
+      <DependentUpon>LinePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\NoFlickerPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\NoFlickerPanel.Designer.cs">
+      <DependentUpon>NoFlickerPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\PenPainter\Line.cs" />
+    <Compile Include="Helpers\Painters\PenPainter\LinePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\PenPainter\LinePanel.Designer.cs">
+      <DependentUpon>LinePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\PenPainter\PenEditorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\PenPainter\PenEditorDialog.Designer.cs">
+      <DependentUpon>PenEditorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\SystemColorPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\SystemColorPickerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\SystemColorPickerDialog.Designer.cs">
+      <DependentUpon>SystemColorPickerDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Painters\Utils.cs" />
+    <Compile Include="Helpers\Painters\WebColorPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\WebColorPickerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Painters\WebColorPickerDialog.Designer.cs">
+      <DependentUpon>WebColorPickerDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ReflectionUtils.cs" />
+    <Compile Include="Helpers\ShadowUtils.cs" />
+    <Compile Include="Helpers\SpicyLipsTheme\Spicylips Theme.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\ThemeManagers\Themes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\TransparentText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Control.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SimpleListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Helpers\NoFlickerPanel.resx">
+      <DependentUpon>NoFlickerPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\BaseColorPicker.resx">
+      <DependentUpon>BaseColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\Brushes\BrushPainter2Dialog.resx">
+      <DependentUpon>BrushPainter2Dialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\Brushes\BrushPainterDialog.resx">
+      <DependentUpon>BrushPainterDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\Brushes\Painter2Panel.resx">
+      <DependentUpon>Painter2Panel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\Brushes\PainterPanel.resx">
+      <DependentUpon>PainterPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\CatColorPicker.resx">
+      <DependentUpon>CatColorPicker.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\ColorGradientEditor.resx">
+      <DependentUpon>ColorGradientEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\ColorGradientEditorDialog.resx">
+      <DependentUpon>ColorGradientEditorDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\ComboColorPicker.resx">
+      <DependentUpon>ComboColorPicker.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\ComboColorPickerDialog.resx">
+      <DependentUpon>ComboColorPickerDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\CustomColorPicker.resx">
+      <DependentUpon>CustomColorPicker.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\CustomColorPickerDialog.resx">
+      <DependentUpon>CustomColorPickerDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\HatchStylePanel.resx">
+      <DependentUpon>HatchStylePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\LinearGradientPanel.resx">
+      <DependentUpon>LinearGradientPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\LineEditorDialog.resx">
+      <DependentUpon>LineEditorDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\LinePanel.resx">
+      <DependentUpon>LinePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\NoFlickerPanel.resx">
+      <DependentUpon>NoFlickerPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\PenPainter\LinePanel.resx">
+      <DependentUpon>LinePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\PenPainter\PenEditorDialog.resx">
+      <DependentUpon>PenEditorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\SystemColorPickerDialog.resx">
+      <DependentUpon>SystemColorPickerDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Painters\WebColorPickerDialog.resx">
+      <DependentUpon>WebColorPickerDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_point.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addPoint_12px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addPoint_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addPoint_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addPoint_9px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Color.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Double_Left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Double_Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\downLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DownLeft_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\downRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DownRight_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\First.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HSL200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Last.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magControlPanel20061222a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magControlPanel20061222.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magControlPanel200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifierglass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifierSettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mangnifier_over.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Next.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prev.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpLeft_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpRight_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Preserved.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
